@@ -7,120 +7,107 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chappy Guild">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="./icon-192.png">
-<title>Chappy Guild v0.6</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<title>Chappy Guild v0.8</title>
 <style>
 :root{
- --ink:#fff5df;--muted:#d5b98b;--gold:#ffd36a;--dark:#080407;--panel:#171014;--panel2:#2a1711;--line:#a97838;
- --purple:#b47cff;--red:#ff8fa3;--green:#9af0b6;--blue:#9ed8ff
+ --ink:#fff5df;--muted:#d5b98b;--gold:#ffd36a;--dark:#080407;--panel:#171014;--line:#a97838;
+ --purple:#b47cff;--red:#ff8fa3;--green:#9af0b6;--blue:#9ed8ff;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;min-height:100svh;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;background:#050305;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-.app{max-width:980px;margin:0 auto;min-height:100svh;background:radial-gradient(circle at 50% -5%,#56351e 0,#160b0d 34%,#050305 78%);position:relative;overflow:hidden}
-.topbar{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:14px 14px 6px}
-.logo{font-size:30px;font-weight:1000;letter-spacing:-.05em;text-shadow:0 4px 18px #000;color:#ffe9bc}.logo span{color:#c494ff}.sub{font-size:11px;color:var(--muted);margin-top:2px}
-.menu{border:1px solid #77542d;background:#120b0d;border-radius:999px;padding:8px 10px;color:#ffe8bd;font-weight:900}
-.hero{position:relative;height:560px;margin:0 10px;border:1px solid #8d6330;border-radius:24px;overflow:hidden;background:
- linear-gradient(180deg,#0003,#0000 30%,#0008 100%),
- radial-gradient(circle at 18% 56%,#ffb13d 0,#a33c16 7%,#3b1208 15%,transparent 23%),
- linear-gradient(180deg,#2c1a12 0,#12090b 60%,#080405 100%);
- box-shadow:inset 0 0 70px #000,0 18px 45px #0009}
-.hero:before{content:"";position:absolute;inset:0;background:
- repeating-linear-gradient(90deg,transparent 0,transparent 70px,#0002 70px,#0002 74px),
- radial-gradient(circle at 65% 32%,#e8a84a44 0,transparent 22%),
- linear-gradient(90deg,#0005,transparent 20%,transparent 80%,#0007)}
-.sign{position:absolute;top:14px;left:14px;z-index:5;background:linear-gradient(180deg,#4e2d13,#1f0d08);border:2px solid #d2a052;border-radius:16px;padding:10px 13px;box-shadow:0 8px 22px #0008}.sign b{font-size:18px}.sign .lv{font-size:12px;color:#f7d796}
-.resource{position:absolute;top:15px;right:12px;z-index:5;display:flex;gap:6px}.res{background:#090608cc;border:1px solid #7b5b37;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;color:#ffe9bc}
-.tavernObjects{position:absolute;inset:0;z-index:1}.fire{position:absolute;left:22px;bottom:128px;width:92px;height:92px;border-radius:44% 44% 22% 22%;background:radial-gradient(circle,#ffe37a 0,#ff8b2d 34%,#6d1f0d 60%,#1b0804 78%);filter:drop-shadow(0 0 24px #ff8b2d)}.counter{position:absolute;right:18px;bottom:122px;width:210px;height:92px;background:linear-gradient(180deg,#744519,#2b1308);border:2px solid #b98139;border-radius:18px 18px 8px 8px}.questBoard{position:absolute;right:30px;top:95px;width:160px;height:125px;background:linear-gradient(180deg,#5a3314,#211009);border:2px solid #b98139;border-radius:16px;padding:10px}.paper{height:24px;margin:7px 0;background:#d9bd84;border-radius:4px}
-.chars{position:absolute;z-index:3;left:0;right:0;bottom:72px;height:380px}
-.char{position:absolute;bottom:0;text-align:center;filter:drop-shadow(0 10px 16px #000)}
-.char img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;border-radius:18px;border:1px solid #d3ad63;background:#090507}
-.char.center{left:34%;width:32%;height:370px;z-index:4}.char.left{left:7%;width:27%;height:330px;z-index:3}.char.right{right:7%;width:24%;height:290px;z-index:3}
-.nameplate{position:absolute;left:6px;right:6px;bottom:6px;background:linear-gradient(180deg,#251522dd,#090509ee);border:1px solid #d6a759;border-radius:12px;padding:6px;font-size:12px;font-weight:900}.nameplate small{display:block;color:#d8bd8c;font-weight:700}
-.bubble{position:absolute;background:#fff0cf;color:#2b160c;border:2px solid #7a4c23;border-radius:14px;padding:9px 10px;z-index:6;font-size:12px;box-shadow:0 8px 18px #0008}.bubble:after{content:"";position:absolute;bottom:-9px;left:30px;border-width:9px 7px 0 7px;border-style:solid;border-color:#fff0cf transparent transparent transparent}.b1{left:28%;bottom:315px}.b2{right:5%;bottom:270px}.b3{left:5%;bottom:255px}
-.actionDock{position:absolute;z-index:8;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.act{border:1px solid #d2a052;background:linear-gradient(180deg,#6d431d,#2c1309);border-radius:15px;color:#ffe8bd;font-weight:1000;font-size:12px;padding:11px 4px;box-shadow:0 8px 18px #0008}
-.infoPanels{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 10px 84px}.panel{background:linear-gradient(160deg,#1b1114,#0b0709);border:1px solid #8d6330;border-radius:18px;padding:12px;box-shadow:inset 0 0 0 1px #fff1,0 12px 28px #0008}.panel h3{margin:0 0 8px;font-size:15px;color:#ffe8bd}.stars{font-size:24px;color:#ffd36a;letter-spacing:1px}.miniRow{display:flex;justify-content:space-between;border-top:1px solid #46311f;padding:7px 0;font-size:12px;color:#dfc494}.questLine{background:#d7bd82;color:#2b160c;border:1px solid #8d6330;border-radius:9px;margin:7px 0;padding:8px;font-weight:800;font-size:12px}
+.app{max-width:980px;margin:0 auto;min-height:100svh;background:#050305;position:relative;overflow:hidden}
+.screen{display:none;min-height:100svh;padding-bottom:86px}.screen.on{display:block}
+.topHud{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:flex-start;padding:12px 12px 0;pointer-events:none}
+.logoBox{pointer-events:auto;background:linear-gradient(90deg,#050305dd,#05030555);border:1px solid #6d4a25;border-radius:18px;padding:10px 12px;box-shadow:0 8px 24px #0008}
+.logo{font-size:28px;font-weight:1000;letter-spacing:-.05em;text-shadow:0 4px 18px #000;color:#ffe9bc}.logo span{color:#c494ff}.sub{font-size:11px;color:var(--muted);margin-top:2px}
+.resources{pointer-events:auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.res{background:#090608d9;border:1px solid #7b5b37;border-radius:999px;padding:8px 10px;font-size:12px;font-weight:900;color:#ffe9bc}
+.tavern{position:relative;height:100svh;min-height:690px;background:url('./assets/backgrounds/bg_tavern_main.png') center/cover no-repeat;overflow:hidden}
+.tavern:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0003,#0000 38%,#000c 100%),radial-gradient(circle at 50% 45%,transparent 0,transparent 50%,#0008 100%);z-index:1}
+.characters{position:absolute;z-index:5;left:0;right:0;bottom:98px;height:470px;pointer-events:none}
+.char{position:absolute;bottom:0;filter:drop-shadow(0 14px 20px #000c);pointer-events:auto}
+.char img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;border-radius:24px;border:1px solid #d5aa5d;background:#090507cc;box-shadow:0 0 26px #000c}
+.char.celestria{left:32%;width:36%;height:460px;z-index:7}
+.char.riona{left:4%;width:31%;height:410px;z-index:6}
+.char.mina{right:2%;width:30%;height:370px;z-index:6}
+.nameplate{position:absolute;left:8px;right:8px;bottom:8px;background:linear-gradient(180deg,#251522e8,#090509f2);border:1px solid #d6a759;border-radius:14px;padding:8px;font-size:13px;font-weight:900}.nameplate small{display:block;color:#d8bd8c;font-weight:700}
+.bubble{position:absolute;background:#fff0cf;color:#2b160c;border:2px solid #7a4c23;border-radius:15px;padding:9px 10px;z-index:10;font-size:12px;box-shadow:0 8px 18px #0008;max-width:190px}.bubble:after{content:"";position:absolute;bottom:-9px;left:30px;border-width:9px 7px 0 7px;border-style:solid;border-color:#fff0cf transparent transparent transparent}
+.b1{left:34%;bottom:520px}.b2{left:6%;bottom:470px}.b3{right:4%;bottom:430px}
+.homePanels{position:absolute;z-index:12;left:10px;right:10px;bottom:82px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.panel{background:linear-gradient(160deg,#160d10e8,#080507ee);border:1px solid #8d6330;border-radius:18px;padding:11px;box-shadow:inset 0 0 0 1px #fff1,0 12px 28px #0008}.panel h3{margin:0 0 7px;font-size:14px;color:#ffe8bd}.stars{font-size:20px;color:#ffd36a;letter-spacing:1px}.miniRow{display:flex;justify-content:space-between;border-top:1px solid #46311f;padding:6px 0;font-size:12px;color:#dfc494}.questLine{background:#d7bd82;color:#2b160c;border:1px solid #8d6330;border-radius:9px;margin:6px 0;padding:7px;font-weight:800;font-size:12px}
 .bottomNav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#080507e8;backdrop-filter:blur(12px);border-top:1px solid #5e3e24;display:grid;grid-template-columns:repeat(6,1fr);max-width:980px;margin:auto;padding:7px 6px env(safe-area-inset-bottom)}.navBtn{background:#120b0d;border:1px solid #4f3722;border-radius:13px;color:#d8bd8c;font-size:11px;padding:8px 2px;font-weight:900}.navBtn.on{color:#fff;background:linear-gradient(180deg,#7c4f24,#2f160b);border-color:#d2a052}
-.screen{display:none;padding:0 10px 88px}.screen.on{display:block}.card{background:linear-gradient(160deg,#1b1114,#0b0709);border:1px solid #8d6330;border-radius:18px;padding:12px;margin:10px 0}.advGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.advCard{background:#130b10;border:1px solid #7b5b37;border-radius:16px;overflow:hidden}.advCard img{width:100%;height:230px;object-fit:cover;object-position:50% 12%;background:#080507}.advBody{padding:9px}.rarity{color:#ffd36a;font-size:12px}.advName{font-weight:1000}.small{font-size:12px;color:#d5b98b;line-height:1.45}.select{width:100%;margin:7px 0;border:1px solid #77542d;background:#1a1014;border-radius:13px;color:#ffe8bd;padding:10px;text-align:left;font-weight:800}
-.gachaDoor{height:380px;border-radius:24px;border:1px solid #8d6330;background:radial-gradient(circle at 50% 48%,#ffe089 0,#a85b20 9%,transparent 20%),linear-gradient(180deg,#2a1711,#090507);display:flex;align-items:center;justify-content:center;flex-direction:column}.doorIcon{font-size:92px;filter:drop-shadow(0 0 24px #ffd36a);animation:pulse 1s infinite alternate}@keyframes pulse{from{transform:scale(.98)}to{transform:scale(1.05)}}.hidden{display:none}
-@media(max-width:480px){.hero{height:535px}.logo{font-size:27px}.char.center{left:31%;width:38%;height:350px}.char.left{left:3%;width:31%;height:300px}.char.right{right:2%;width:29%;height:265px}.infoPanels{grid-template-columns:1fr}.advGrid{grid-template-columns:1fr 1fr}.advCard img{height:190px}.resource{top:58px;right:14px}.questBoard{display:none}.bubble{font-size:11px}.b1{left:32%;bottom:300px}.b2{right:2%;bottom:245px}.b3{left:2%;bottom:230px}}
+.pageHeader{padding:18px 12px 6px}.pageTitle{font-size:28px;font-weight:1000}.card{background:linear-gradient(160deg,#1b1114,#0b0709);border:1px solid #8d6330;border-radius:18px;padding:12px;margin:10px 10px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.advCard,.npcCard{background:#130b10;border:1px solid #7b5b37;border-radius:16px;overflow:hidden}.advCard img,.npcCard img{width:100%;height:230px;object-fit:cover;object-position:50% 10%;background:#080507}.body{padding:9px}.rarity{color:#ffd36a;font-size:12px}.name{font-weight:1000}.small{font-size:12px;color:#d5b98b;line-height:1.45}.select{width:100%;margin:7px 0;border:1px solid #77542d;background:#1a1014;border-radius:13px;color:#ffe8bd;padding:10px;text-align:left;font-weight:800}
+.gachaDoor{height:420px;border-radius:24px;border:1px solid #8d6330;background:radial-gradient(circle at 50% 48%,#ffe089 0,#a85b20 9%,transparent 20%),linear-gradient(180deg,#2a1711,#090507);display:flex;align-items:center;justify-content:center;flex-direction:column}.doorIcon{font-size:92px;filter:drop-shadow(0 0 24px #ffd36a);animation:pulse 1s infinite alternate}@keyframes pulse{from{transform:scale(.98)}to{transform:scale(1.05)}}
+.notice{background:#29130f;border:1px solid #b76d39;border-radius:14px;padding:9px;margin-top:8px;color:#ffd9ad}
+@media(max-width:520px){
+ .logo{font-size:24px}.resources{margin-top:54px}.tavern{min-height:720px;background-position:center}
+ .characters{height:430px;bottom:152px}
+ .char.celestria{left:28%;width:43%;height:420px}
+ .char.riona{left:-1%;width:36%;height:360px}
+ .char.mina{right:-4%;width:36%;height:330px}
+ .b1{left:34%;bottom:486px}.b2{left:3%;bottom:432px}.b3{right:3%;bottom:392px}
+ .homePanels{grid-template-columns:1fr;bottom:82px}.panel:nth-child(1){display:none}
+ .grid{grid-template-columns:1fr 1fr}.advCard img,.npcCard img{height:190px}
+}
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="topbar">
-    <div><div class="logo">Chappy <span>Guild</span> 🐈</div><div class="sub">〜月猫亭ギルド経営記〜 v0.6 UIモック実装</div></div>
-    <button class="menu" id="resetBtn">新規</button>
-  </div>
-
   <main id="home" class="screen on">
-    <section class="hero">
-      <div class="sign"><b>月猫亭</b><div class="lv">Guild Lv.<span id="guildLv">12</span></div></div>
-      <div class="resource"><div class="res">🪙 <span id="gold">23450</span>G</div><div class="res">💎 <span id="gem">8760</span></div></div>
-      <div class="tavernObjects"><div class="fire"></div><div class="counter"></div><div class="questBoard"><div class="paper"></div><div class="paper"></div><div class="paper"></div></div></div>
-      <div class="chars">
-        <div class="char left"><img src="./riona.png"><div class="nameplate">⚔️ リオナ<small>Lv.11</small></div></div>
-        <div class="char center"><img src="./celestria.png"><div class="nameplate">🔮 セレスティア<small>Lv.12</small></div></div>
-        <div class="char right"><img src="./mina.png"><div class="nameplate">🍀 ミナ<small>Lv.8</small></div></div>
+    <section class="tavern">
+      <div class="topHud">
+        <div class="logoBox"><div class="logo">月猫亭 <span>Guild</span> 🐈</div><div class="sub">Chappy Guild v0.8 / 素材反映版</div></div>
+        <div class="resources"><div class="res">🪙 <span id="gold">10000</span>G</div><div class="res">⭐ 名声 1250</div></div>
       </div>
-      <div class="bubble b1">今日は依頼が多いですね。</div>
-      <div class="bubble b2">お腹すいた〜！何か食べたい！</div>
-      <div class="bubble b3">鍛錬は欠かせないわね。</div>
-      <div class="actionDock">
-        <button class="act" data-go="scout">🎲 募集</button>
-        <button class="act" data-go="service">🍺 営業</button>
-        <button class="act" data-go="quest">📜 依頼</button>
-        <button class="act" data-go="advs">👥 冒険者</button>
+      <div class="characters">
+        <div class="char riona"><img src="./assets/characters/ch_riona.png"><div class="nameplate">⚔️ リオナ<small>紅槍の騎士 / Lv.11</small></div></div>
+        <div class="char celestria"><img src="./assets/characters/ch_celestria.png"><div class="nameplate">🔮 セレスティア<small>蒼月の魔導姫 / Lv.12</small></div></div>
+        <div class="char mina"><img src="./assets/characters/ch_mina.png"><div class="nameplate">🍀 ミナ<small>幸運の子猫 / Lv.8</small></div></div>
       </div>
-    </section>
-    <section class="infoPanels">
-      <div class="panel"><h3>本日の営業状況</h3><div class="stars">★★★★★</div><div class="miniRow"><span>来客数</span><b>12人</b></div><div class="miniRow"><span>売上</span><b>540G</b></div><div class="miniRow"><span>名声</span><b>1,870</b></div></div>
-      <div class="panel"><h3>本日の依頼</h3><div class="questLine">🐎 商隊護衛　報酬 320G</div><div class="questLine">🔍 迷子の捜索　報酬 180G</div><div class="questLine">🐺 魔物討伐（森） 報酬 420G</div></div>
+      <div class="bubble b1" id="talk1">任せてください。月猫亭の未来、必ず守ってみせます。</div>
+      <div class="bubble b2" id="talk2">鍛錬あるのみだ！</div>
+      <div class="bubble b3" id="talk3">おなかすいた〜！</div>
+      <div class="homePanels">
+        <div class="panel"><h3>本日の営業状況</h3><div class="stars">★★★★★</div><div class="miniRow"><span>来客数</span><b>12人</b></div><div class="miniRow"><span>売上</span><b>540G</b></div><div class="miniRow"><span>評判</span><b>好調</b></div></div>
+        <div class="panel"><h3>本日の依頼</h3><div class="questLine">🐎 商隊護衛　報酬 320G</div><div class="questLine">🔍 迷子の捜索　報酬 180G</div><div class="questLine">🐺 魔物討伐（森） 報酬 420G</div></div>
+      </div>
     </section>
   </main>
 
-  <main id="advs" class="screen">
-    <div class="card"><h2>冒険者一覧</h2><div class="advGrid" id="advGrid"></div></div>
-  </main>
-
-  <main id="quest" class="screen">
-    <div class="card"><h2>依頼（受付営業）</h2><div class="small">お客様の要望に合う冒険者を紹介しましょう。</div><div id="clients"></div></div>
-  </main>
-
-  <main id="scout" class="screen">
-    <div class="card"><h2>スカウト（冒険者募集）</h2><div class="gachaDoor"><div class="doorIcon">🚪</div><div class="small">新たな冒険者を募集します</div><button class="act" id="scoutBtn" style="margin-top:18px">1回募集 💎300</button></div><div id="scoutResult"></div></div>
-  </main>
-
-  <main id="book" class="screen">
-    <div class="card"><h2>冒険者図鑑</h2><div class="small">図鑑達成率 12%　12 / 100</div><div class="advGrid" id="bookGrid"></div></div>
-  </main>
-
-  <main id="guild" class="screen">
-    <div class="card"><h2>ギルド強化</h2><button class="select">🍺 月猫亭 Lv.12　強化する</button><button class="select">⚔️ 訓練場 Lv.8　強化する</button><button class="select">🛏️ 宿屋 Lv.6　強化する</button><button class="select">⚒️ 鍛冶屋 Lv.7　強化する</button></div>
-  </main>
+  <main id="advs" class="screen"><div class="pageHeader"><div class="pageTitle">冒険者</div><div class="small">月猫亭の創設メンバー</div></div><div class="card"><div class="grid" id="advGrid"></div></div></main>
+  <main id="quest" class="screen"><div class="pageHeader"><div class="pageTitle">依頼</div><div class="small">依頼人の要望に合う冒険者を紹介しよう</div></div><div class="card"><div class="grid" id="npcGrid"></div></div></main>
+  <main id="scout" class="screen"><div class="pageHeader"><div class="pageTitle">スカウト</div><div class="small">酒場の扉から新たな冒険者が現れる</div></div><div class="card"><div class="gachaDoor"><div class="doorIcon">🚪</div><div class="small">新たな冒険者を募集します</div><button class="select" id="scoutBtn" style="max-width:260px;text-align:center">1回募集 💎300</button></div><div id="scoutResult"></div></div></main>
+  <main id="book" class="screen"><div class="pageHeader"><div class="pageTitle">図鑑</div><div class="small">取得済み 3 / 100</div></div><div class="card"><div class="grid" id="bookGrid"></div></div></main>
+  <main id="guild" class="screen"><div class="pageHeader"><div class="pageTitle">ギルド強化</div><div class="small">月猫亭を大きく育てよう</div></div><div class="card"><button class="select">🍺 月猫亭 Lv.1　強化する</button><button class="select">⚔️ 訓練場 Lv.1　強化する</button><button class="select">🛏️ 宿屋 Lv.1　強化する</button><button class="select">⚒️ 鍛冶屋 Lv.1　強化する</button><div class="notice">v0.8は素材反映を優先。次で成長処理を戻す予定。</div></div></main>
 
   <nav class="bottomNav">
     <button class="navBtn on" data-go="home">🏠<br>酒場</button>
     <button class="navBtn" data-go="advs">👥<br>冒険者</button>
     <button class="navBtn" data-go="quest">📜<br>依頼</button>
-    <button class="navBtn" data-go="scout">🎲<br>スカウト</button>
+    <button class="navBtn" data-go="scout">🎲<br>募集</button>
     <button class="navBtn" data-go="book">📖<br>図鑑</button>
     <button class="navBtn" data-go="guild">🏰<br>強化</button>
   </nav>
 </div>
-
 <script>
 const chars=[
- {name:"セレスティア",rare:"SSR",job:"大魔法使い",lv:12,img:"./celestria.png",hp:1250,atk:1480,fatigue:35},
- {name:"リオナ",rare:"SR",job:"槍騎士",lv:11,img:"./riona.png",hp:980,atk:890,fatigue:28},
- {name:"ミナ",rare:"R",job:"盗賊見習い",lv:8,img:"./mina.png",hp:640,atk:520,fatigue:18}
+ {name:"セレスティア",rare:"SSR",job:"蒼月の魔導姫",lv:12,img:"./assets/characters/ch_celestria.png",text:"任せてください。"},
+ {name:"リオナ",rare:"SR",job:"紅槍の騎士",lv:11,img:"./assets/characters/ch_riona.png",text:"鍛錬あるのみだ！"},
+ {name:"ミナ",rare:"R",job:"幸運の子猫",lv:8,img:"./assets/characters/ch_mina.png",text:"おなかすいた〜！"}
 ];
-function card(c){return `<div class="advCard"><img src="${c.img}"><div class="advBody"><div class="rarity">${c.rare}</div><div class="advName">${c.name}</div><div class="small">${c.job} / Lv.${c.lv}<br>攻撃 ${c.atk} / 疲労 ${c.fatigue}%</div></div></div>`}
-function render(){document.getElementById("advGrid").innerHTML=chars.map(card).join("");document.getElementById("bookGrid").innerHTML=chars.map(card).join("")+"<div class='advCard' style='filter:brightness(.35) grayscale(1)'><div style='height:190px;display:flex;align-items:center;justify-content:center;font-size:48px'>?</div><div class='advBody'><div class='rarity'>???</div><div class='advName'>未取得</div><div class='small'>スカウトで発見</div></div></div>";document.getElementById("clients").innerHTML=[["商人ギルドの使者","護衛を探している","報酬 320G"],["貴族の令嬢","礼儀正しく信頼できる方を希望","報酬 240G"],["魔術師エルヴィン","古代遺跡の調査に同行してほしい","報酬 380G"]].map(x=>`<div class="client"><div class="qhead"><b>${x[0]}</b><span class="qtag">${x[2]}</span></div><div class="small">${x[1]}</div>${chars.map(c=>`<button class="select">${c.name}を紹介する</button>`).join("")}</div>`).join("")}
+const npcs=[
+ {name:"グレイ・ハドソン",role:"商人",img:"./assets/npc/npc_merchant.png",req:"護衛を頼みたい。この荷を安全に届けてくれないか？",pay:"320G"},
+ {name:"クラリッサ",role:"貴族",img:"./assets/npc/npc_noble.png",req:"礼儀ある冒険者を紹介してほしいの。",pay:"240G"},
+ {name:"エルドリック",role:"魔術師",img:"./assets/npc/npc_mage.png",req:"古代遺跡の魔力反応を調査したい。",pay:"380G"},
+ {name:"カイル",role:"新人冒険者",img:"./assets/npc/npc_rookie.png",req:"僕でもできる依頼を教えてください！",pay:"120G"}
+];
+function charCard(c){return `<div class="advCard"><img src="${c.img}"><div class="body"><div class="rarity">${c.rare}</div><div class="name">${c.name}</div><div class="small">${c.job} / Lv.${c.lv}<br>${c.text}</div></div></div>`}
+function npcCard(n){return `<div class="npcCard"><img src="${n.img}"><div class="body"><div class="rarity">${n.role}</div><div class="name">${n.name}</div><div class="small">${n.req}<br>報酬 ${n.pay}</div><button class="select">冒険者を紹介する</button></div></div>`}
+function render(){document.getElementById("advGrid").innerHTML=chars.map(charCard).join("");document.getElementById("bookGrid").innerHTML=chars.map(charCard).join("");document.getElementById("npcGrid").innerHTML=npcs.map(npcCard).join("")}
 function go(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));document.getElementById(id).classList.add("on");document.querySelectorAll(".navBtn").forEach(b=>b.classList.toggle("on",b.dataset.go===id))}
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-document.getElementById("scoutBtn").onclick=()=>{let c=chars[Math.floor(Math.random()*chars.length)];document.getElementById("scoutResult").innerHTML=`<div class="card"><h2>${c.rare} ${c.name} 登場！</h2>${card(c)}</div>`}
-document.getElementById("resetBtn").onclick=()=>location.reload();
+document.getElementById("scoutBtn").onclick=()=>{let c=chars[Math.floor(Math.random()*chars.length)];document.getElementById("scoutResult").innerHTML=`<div class="card"><h2>${c.rare} ${c.name} 登場！</h2>${charCard(c)}</div>`}
 render();
 if("serviceWorker" in navigator){navigator.serviceWorker.register("./service-worker.js").catch(()=>{})}
 </script>

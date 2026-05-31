@@ -1,0 +1,23 @@
+{
+  "version": "0.8",
+  "assets": {
+    "backgrounds": [
+      "assets/backgrounds/bg_tavern_main.png"
+    ],
+    "characters": [
+      "assets/characters/ch_celestria.png",
+      "assets/characters/ch_riona.png",
+      "assets/characters/ch_mina.png"
+    ],
+    "npc": [
+      "assets/npc/npc_merchant.png",
+      "assets/npc/npc_noble.png",
+      "assets/npc/npc_mage.png",
+      "assets/npc/npc_rookie.png"
+    ],
+    "icons": [
+      "icon-192.png",
+      "icon-512.png"
+    ]
+  }
+}
