@@ -3,8 +3,8 @@
   "short_name": "Guild",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#100b18",
-  "theme_color": "#180d18",
+  "background_color": "#050305",
+  "theme_color": "#090507",
   "orientation": "portrait",
   "icons": [
     {
